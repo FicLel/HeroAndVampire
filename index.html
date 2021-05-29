@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div>
+      <div>
+      <h1>Data-Binding Example</h1>
+       <label for="firstName">
+         <div>First Name:</div><input type="text" data-bind="first" id="firstName" />
+       </label>
+       <label for="fullName">
+         <div>Full Name:</div><input type="text" data-bind="full" id="fullName" disabled />
+       </label>
+   </div>
+ 
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
