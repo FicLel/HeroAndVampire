@@ -4,21 +4,37 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma-rtl.min.css"/>
+    <title>Hero and Vampire</title>
   </head>
   <body>
-    <div>
+    <div id="init">
       <div>
-      <h1>Data-Binding Example</h1>
-       <label for="firstName">
-         <div>First Name:</div><input type="text" data-bind="first" id="firstName" />
-       </label>
-       <label for="fullName">
-         <div>Full Name:</div><input type="text" data-bind="full" id="fullName" disabled />
-       </label>
-   </div>
- 
-    </div>
+          <label for="firstName">
+            <div>Escribe tu nombre aventurero:</div><input type="text" data-bind="first" id="firstName" />
+          </label>
+          <label for="fullName">
+            <input type="text" disabled data-bind="full" id="fullName" />
+          </label>
+          <button class="button is-info is-outlined" id="start">Start Game</button>
+        </div> 
+      </div>
+      <!-- this section is for the battle section -->
+      <div id="batle">
+        <div class="columns">
+          <div class="column">Auto</div>
+        </div>
+        <div class="columns is-multiline">
+          <div class="column is-7">
+          </div>
+          <div class="column is-5">
+            <div class="columns">
+              <div class="column is-6"><button class="button is-danger is-large is-fullwidth">Attack</button></div>
+              <div class="column is-6"><button class="button is-success is-large is-fullwidth">Defend</button></div>
+            </div> 
+          </div>
+        </div>
+      </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

@@ -44,7 +44,7 @@ export class Entity {
   }
 
   public toString(): string {
-    return `Hero: ${this._name}`;
+    return `Entity: ${this._name}`;
   }
 
 }

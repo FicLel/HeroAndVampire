@@ -26,11 +26,11 @@ export class EntityHeroBuilder extends EntityBuilder {
     this._entity.attack = value || 30;
   }
   public setLevel(value? : number): void {
-    this._entity.level = value || 0;
+    this._entity.level = value || 1;
   }
 
-  public build(): Hero {
-    const hero = this.hero;
+  public build(): Entity {
+    const hero = this._entity;
     this.reset();
     return hero;
   }
