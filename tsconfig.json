@@ -11,7 +11,9 @@
     "noEmit": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noImplicitReturns": true
+    "noImplicitReturns": true,
+    "allowJs": true,
+    "declaration": false
   },
   "include": ["./src"]
 }

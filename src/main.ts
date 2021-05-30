@@ -3,7 +3,11 @@ import Observer from './observer/observer';
 import {EntityDirector} from './builder/entity-director';
 import {EntityVampireBuilder} from './builder/vampire-entity-builder';
 import {EntityHeroBuilder} from './builder/hero-entity-builder';
+import {GameController} from './controller/game-controller';
 import './style.css'
+import {Game} from './model/game';
+
+//We import db module
 
 const bindings: any = {};
 
@@ -21,10 +25,13 @@ const initGame: any = (): any => {
   console.log('vampire', realVampire.toString());
 };
 
+const controller: any = new GameController();
 
+const result: any = await controller.index();
 
-
-
+result.forEach((game: any) => {
+  console.log(game.name);
+});
 
 /*
   To apply our observer we have to get all elements with the attribute data-bind
