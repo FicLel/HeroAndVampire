@@ -18,6 +18,7 @@ const hero = new EntityHeroBuilder();
 
 let name = '';
 //Init game logic 
+//Here we implement our builders
 const initGame: any = (): any => {
   const realVampire = director.createBasicVampire(vampire);
   const realHero = director.createHero(hero, bindings?.first?.value);
@@ -25,13 +26,25 @@ const initGame: any = (): any => {
   console.log('vampire', realVampire.toString());
 };
 
+const addRowsToTable: any = (name: string, date: string, time: string): any => {
+  let body: any = document.getElementById("list")?.getElementsByTagName("tbody")[0];
+  let newRow: any = body.insertRow();
+  let nameRow: any = newRow.insertCell().appendChild(document.createTextNode(name));
+  let dateRow: any = newRow.insertCell().appendChild(document.createTextNode(date));
+  let timeRow: any = newRow.insertCell().appendChild(document.createTextNode(time));
+
+};
+
+//Getting data from our MVC this is the View layer
 const controller: any = new GameController();
 
 const result: any = await controller.index();
 
 result.forEach((game: any) => {
+  addRowsToTable(game.name, game.date, game.time);
   console.log(game.name);
 });
+
 
 /*
   To apply our observer we have to get all elements with the attribute data-bind

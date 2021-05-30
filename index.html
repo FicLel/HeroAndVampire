@@ -9,14 +9,31 @@
   </head>
   <body>
     <div id="init">
-      <div>
+      <div class="columns is-narrow">
+        <div class="column is-4">
           <label for="firstName">
-            <div>Escribe tu nombre aventurero:</div><input type="text" data-bind="first" id="firstName" />
+            <div>Escribe tu nombre aventurero:</div>
           </label>
+          <input type="text" data-bind="first" id="firstName" class="input is-small"/>
+          
+          <button class="button is-info is-outlined is-fullwidth" id="start">Start Game</button>
+          </div>
+          <div class="column is-4"></div> 
+          <!-- List of plays -->
+          <div class="column is-3">
           <label for="fullName">
-            <input type="text" disabled data-bind="full" id="fullName" />
+            <input type="text" disabled data-bind="full" id="fullName" class="input"/>
           </label>
-          <button class="button is-info is-outlined" id="start">Start Game</button>
+            <label>Este es el historial de partidas</label>
+            <table class="table is-fullwidth" id="list">
+              <thead>
+                <th>Player</th>
+                <th>Date game</th>
+                <th>Time played</th>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
         </div> 
       </div>
       <!-- this section is for the battle section -->
@@ -35,7 +52,7 @@
           </div>
         </div>
       </div>
-    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
     <script type="module" src="/src/main.ts"></script>
   </body>
