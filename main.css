@@ -1,0 +1,33 @@
+.entity-window {
+  padding: 1rem;
+}
+
+
+img {
+  height: 15rem;
+  border-radius: 8px;
+}
+
+.options-back {
+  margin-top: 4em;
+  width: 100vw;
+  min-height: 38vh;
+  background: #434C5E;
+  bottom: 0;
+}
+
+.container-data-battle{
+  padding-top: 1rem;
+}
+
+.historical {
+  word-wrap: break-word
+  min-width: 100%;
+  min-height: 100%;
+  background: white;
+  border: 2px solid white;
+  box-shadow: 0 1px 0 1px black,
+              inset 0 1px 0 1px black,
+              0 0 0 1px black,
+              inset 0 0 0 1px black;
+}

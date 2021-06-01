@@ -4,8 +4,11 @@ import {EntityDirector} from './builder/entity-director';
 import {EntityVampireBuilder} from './builder/vampire-entity-builder';
 import {EntityHeroBuilder} from './builder/hero-entity-builder';
 import {GameController} from './controller/game-controller';
-import './style.css'
 import {Game} from './model/game';
+import {Battle} from './utils/battle-utilities';
+import './style.css'
+
+import './style.css'
 
 //We import db module
 
@@ -15,6 +18,11 @@ const director = new EntityDirector();
 const vampire = new EntityVampireBuilder();
 const hero = new EntityHeroBuilder();
 
+let battle = new Battle();
+
+let toggle = document.getElementById("init");
+let toggle2 = document.getElementById('batle');
+
 
 let name = '';
 //Init game logic 
@@ -22,8 +30,20 @@ let name = '';
 const initGame: any = (): any => {
   const realVampire = director.createBasicVampire(vampire);
   const realHero = director.createHero(hero, bindings?.first?.value);
-  console.log('hero', realHero.toString());
-  console.log('vampire', realVampire.toString());
+
+  toggle.style.display = 'none';
+  toggle2.style.display = 'block';
+  battle.hero = realHero;
+  battle.vampire = realVampire;
+  battle.setNameBattle();
+};
+
+const attack = (): any => {
+  let active = battle.attack();
+  if (!active) {
+    toggle.style.display = 'block';
+    toggle2.style.display = 'none';
+  }
 };
 
 const addRowsToTable: any = (name: string, date: string, time: string): any => {
@@ -42,7 +62,6 @@ const result: any = await controller.index();
 
 result.forEach((game: any) => {
   addRowsToTable(game.name, game.date, game.time);
-  console.log(game.name);
 });
 
 
@@ -74,6 +93,7 @@ const bindValue: any = (input: any, observable: Observer) => {
 
 //We declare our app with an observer an say with attribute we will find after data-bind
 const app = () => {
+  toggle2.style.display = 'none';
   bindings.first = new Observer('');
   bindings.full = new Subject(() => `Bienvenido ${bindings.first.value}`.trim(), [bindings.first]);
   applyBindings();
@@ -85,3 +105,4 @@ setTimeout(app, 0);
 //Event listeners for buttons
 
 document.getElementById('start').addEventListener('click', (): any => {initGame()}, false);
+document.getElementById('attack').addEventListener('click', (): any => {attack()}, false);
